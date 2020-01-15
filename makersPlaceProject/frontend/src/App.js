@@ -1,26 +1,12 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          MakersPlace Masonry
-        </a>
-      </header>
-    </div>
-  );
-}
+import FeedContainer from "./components/feed_container"
+import Feed from "./components/feed"
+const App = () => (
+  <div className="app-container">
+    <FeedContainer />
+  </div>
+)
 
 export default App;

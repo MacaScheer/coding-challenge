@@ -8,10 +8,11 @@ export const receiveImages = images => ({
 })
 
 export const fetchImages = startIdx => dispatch => {
-    getImages(startIdx).then(images => {
-        console.log(images)
-        debugger
-    return dispatch(receiveImages(images))
-    })
-    .catch(err => console.log(err))
+    return (
+        getImages(startIdx).then(images => {
+            // console.log(images)
+            return dispatch(receiveImages(images))
+        })
+            .catch(err => console.log(err))
+    )
 }

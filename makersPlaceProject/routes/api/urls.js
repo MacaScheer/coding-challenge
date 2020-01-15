@@ -1,6 +1,6 @@
 
 
- export const URLS = [
+const URLS = [
     "https://s3-us-west-2.amazonaws.com/makersdistillery/1000x/4cae19e86a96390617c525f27377b2c3_948174.jpg",
     "https://s3-us-west-2.amazonaws.com/makersdistillery/1000x/2b1dbef0478393cf9d4fb4fc8f09793e_491178.jpg",
     "https://s3-us-west-2.amazonaws.com/makersdistillery/1000x/ac33ee54c7357e5ddf90f3ecfd8f6f89_462682.jpg",
@@ -103,4 +103,4 @@
 
 
 
-
+module.exports = URLS

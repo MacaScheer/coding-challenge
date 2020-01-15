@@ -7,9 +7,9 @@ const ImagesReducer = (
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_IMAGES:
-            debugger
-            newState.images.push(...action.images)
-            debugger
+            newState.images.push(...action.images.data.nextUrls)
+            // debugger
+            return newState
             break;
         default:
             return state;
