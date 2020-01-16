@@ -1,8 +1,7 @@
 import React from 'react';
-import Masonry from 'react-masonry-component';
-import { withRouter } from "react-router-dom";
+import Masonry from 'react-masonry-css';
+import "./feed_style.css"
 var debounce = require('debounce');
-
 
 class Feed extends React.Component {
     constructor(props) {
@@ -16,11 +15,11 @@ class Feed extends React.Component {
 
     fetchNextBatch() {
         this.props.fetchImages(this.state.startIdx)
-        debugger
         this.setState = { startIdx: (this.state.startIdx += 9) }
     }
     componentDidMount() {
         this.fetchNextBatch()
+        this.infiniteScroller()
     }
     infiniteScroller() {
         window.onscroll = debounce(() => {
@@ -34,12 +33,11 @@ class Feed extends React.Component {
     }
     render() {
         let currentImages
+        
         if (this.props.images) {
-            currentImages = this.props.images.map(function (image) {
+            currentImages = this.props.images[0].map(image => {
                 return (
-                    <li className="image-element">
-                        <img src={image.src} />
-                    </li>
+                    <img className="feed-image" src={image} />
                 )
             })
             
@@ -48,10 +46,9 @@ class Feed extends React.Component {
         }
         return (
             <Masonry
-                className={'feed-class'}
-                elementType={'ul'}
-                disableImagesLoaded={false}
-                updateOnEachImageLoad={false}
+                breakpointCols={{default: 3, 800: 2}}
+                className="feed-masonry-grid"
+                columnClassName="feed-masonry-grid_column"
             >
                 {currentImages}
             </Masonry>
